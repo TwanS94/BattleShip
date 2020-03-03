@@ -16,10 +16,6 @@ function runGame(){
 	var firstShot = false;
 	var gameOver = false;
 	var guessedPositions = [];
-	var startedGames = 0;
-	var finishedGames = 0; // reports the total amount of games played
-	var winTotal = 0; // reports if the user has won the game
-	var lossTotal = 0; // reports if the user has loss the game
 	
 
 	function alreadyGuessed(guess) {
@@ -42,8 +38,6 @@ function runGame(){
 				if (startGame === "I am ready!") {
 				gameStarted = true;
 				alert("Your game has started!");
-				startedGames = startedGames+1;
-				console.log(startedGames);
 				}
 			}
 	}
@@ -105,22 +99,14 @@ function runGame(){
 	while (gameOver === true){
 		alert("The enemies have reached our ship and destroyed us! Game over.");
 		alert("Thank you for playing "+userName+".");
-			lossTotal = lossTotal+1;
-			finishedGames = finishedGames+1;
 			ga('send', 'pageview', document.location.pathname+'game/finished');
-			console.log(finishedGames);
-			console.log(guesses);
-			console.log(lossTotal);
+
 	break;}
 
 	while (isSunk === true){
 			alert("The enemy battleship has been destroyed!");
-				winTotal = winTotal+1;
-				finishedGames = finishedGames+1;
 				ga('send', 'pageview', document.location.pathname+'game/finished');
-				console.log(finishedGames);
-				console.log(guesses);
-				console.log(winTotal);
+				ga('send', 'event', 'game','finished','win'); //quotes geven categorie, actie en label aan
 			var stats = "You destroyed the enemy battleship in " +guesses+" guesses,"+" which means your shooting accuracy was "+((3/guesses)*100)+"%.";
 			alert(stats);
 			alert("Thank you for playing "+userName+".");
