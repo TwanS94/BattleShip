@@ -83,6 +83,7 @@ function runGame(){
 			}
 			else if (alreadyGuessed(guess)) { 
 			alert("I want to remind you that you already shot at number " + guess + ". We do not have unlimited cannonballs!");
+			ga('send', 'event', 'game','shot','invalid');
 			}
 				else { 
 				guesses = guesses+1;
@@ -92,6 +93,7 @@ function runGame(){
 					alert ("Hit!");
 					hits = hits+1;
 					ga('send', 'event', 'game','shot','hit');
+					ga('send', 'pageview', document.location.pathname+'game/otherShots');
 					alert ("You need "+(3-hits)+" more hits to kill the enemy battleship.");
 						if (hits == 3){
 						isSunk = true;
@@ -100,6 +102,7 @@ function runGame(){
 							else {
 							misses = misses+1;
 							ga('send', 'event', 'game','shot','miss');
+							ga('send', 'pageview', document.location.pathname+'game/otherShots');
 							alert("Miss! Please aim more accurately "+userName+".");
 								if (misses == 3){
 								gameOver = true;
