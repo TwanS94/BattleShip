@@ -28,6 +28,7 @@ function runGame(){
 	}
 
 	userName = prompt("Hi, what is your name?");
+	ga('send', 'pageview', document.location.pathname+'game/nameEntered');
 
 	while (gameStarted === false){
 		startGame = prompt("Hi "+userName+". A dangerous enemy battleship is coming our way! You can destroy it by hitting three shots. Enter a number between 0 and 7 to shoot. If you miss three shots the enemies will reach our ship and destroy us.\n\nWrite: 'I am ready!' to start the battle."); 
@@ -38,6 +39,7 @@ function runGame(){
 				if (startGame === "I am ready!") {
 				gameStarted = true;
 				alert("Your game has started!");
+				ga('send', 'pageview', document.location.pathname+'game/started');
 				}
 			}
 	}
@@ -100,6 +102,7 @@ function runGame(){
 		alert("The enemies have reached our ship and destroyed us! Game over.");
 		alert("Thank you for playing "+userName+".");
 			ga('send', 'pageview', document.location.pathname+'game/finished');
+			ga('send', 'event', 'game','finished','loss'); //quotes geven categorie, actie en label aan
 
 	break;}
 
