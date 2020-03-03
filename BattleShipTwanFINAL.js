@@ -1,7 +1,7 @@
 function runGame(){
 	var shipLocation;
 	function Random() {
-		return Math.floor(Math.random() * 6);}
+		return Math.floor(Math.random() * 8);}
 	shipLocation = Random();
 	var loc1 = shipLocation;
 	var loc2 = loc1+1;
@@ -31,7 +31,7 @@ function runGame(){
 	ga('send', 'pageview', document.location.pathname+'game/nameEntered');
 
 	while (gameStarted === false){
-		startGame = prompt("Hi "+userName+". A dangerous enemy battleship is coming our way! You can destroy it by hitting three shots. Enter a number between 0 and 7 to shoot. If you miss three shots the enemies will reach our ship and destroy us.\n\nWrite: 'I am ready!' to start the battle."); 
+		startGame = prompt("Hi "+userName+". A dangerous enemy battleship is coming our way! You can destroy it by hitting three shots. Enter a number between 0 and 9 to shoot. If you miss three shots the enemies will reach our ship and destroy us.\n\nWrite: 'I am ready!' to start the battle."); 
 		if (startGame != 'I am ready!'){
 		alert('Write: I am ready!');
 		}
@@ -45,15 +45,15 @@ function runGame(){
 	}
 			   
 	while (firstShot === false){
-		guess = prompt("Ready, aim, fire! (enter a # from 0-7)");
-		if (guess<0 || guess >7){
+		guess = prompt("Ready, aim, fire! (enter a # from 0-9)");
+		if (guess<0 || guess >9){
 			alert("Please enter a valid cell #!");
 		}
 			else { 
 			firstShot = true;
 			guessedPositions.push(guess);
 			guesses = guesses+1;
-				if (guess >-1 && guess <8){
+				if (guess >-1 && guess <10){
 				alert("You started firing at the enemy! Be quick since we have been spotted!");
 						if (guess == loc1 || guess == loc2 || guess == loc3){
 						alert ("Hit!");
@@ -69,8 +69,8 @@ function runGame(){
 	}
 				
 	while (isSunk === false && firstShot === true && gameOver === false){
-			guess = prompt("Ready, aim, fire! (enter a # from 0-7)");
-			if (guess<0 || guess > 7){
+			guess = prompt("Ready, aim, fire! (enter a # from 0-9)");
+			if (guess<0 || guess > 9){
 			alert("Please enter a valid cell #!");
 			}
 			else if (alreadyGuessed(guess)) { 
