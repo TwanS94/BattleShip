@@ -16,7 +16,7 @@ function runGame(){
 	var firstShot = false;
 	var gameOver = false;
 	var guessedPositions = [];
-	
+	ga('send', 'pageview', document.location.pathname+'game');
 
 	function alreadyGuessed(guess) {
 	   for(var i=0; i<guessedPositions.length;i++) {
