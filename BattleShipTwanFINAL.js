@@ -33,13 +33,15 @@ function runGame(){
 	while (gameStarted === false){
 		startGame = prompt("Hi "+userName+". A dangerous enemy battleship is coming our way! You can destroy it by hitting three shots. Enter a number between 0 and 9 to shoot. If you miss three shots the enemies will reach our ship and destroy us.\n\nWrite: 'I am ready!' to start the battle."); 
 		if (startGame != 'I am ready!'){
+		ga('send', 'event', 'game','ready','invalid');
 		alert('Write: I am ready!');
 		}
 			else {
 				if (startGame === "I am ready!") {
 				gameStarted = true;
+				ga('send', 'event', 'game','ready','valid');
 				alert("Your game has started!");
-				ga('send', 'pageview', document.location.pathname+'game/started');
+				ga('send', 'pageview', document.location.pathname+'game/gameStarted');
 				}
 			}
 	}
@@ -48,6 +50,7 @@ function runGame(){
 		guess = prompt("Ready, aim, fire! (enter a # from 0-9)");
 		if (guess<0 || guess >9){
 			alert("Please enter a valid cell #!");
+			ga('send', 'event', 'game','shot','invalid');
 		}
 			else { 
 			firstShot = true;
@@ -58,11 +61,15 @@ function runGame(){
 						if (guess == loc1 || guess == loc2 || guess == loc3){
 						alert ("Hit!");
 						hits = hits+1;
+						ga('send', 'event', 'game','shot','hit');
+						ga('send', 'pageview', document.location.pathname+'game/firstShot');
 						alert ("You need "+(3-hits)+" more hits to kill the enemy battleship.");
 						}
 						else {
 						alert("Miss! Please aim more accurately "+userName+"."); 
 						misses = misses+1;
+						ga('send', 'event', 'game','shot','miss');
+						ga('send', 'pageview', document.location.pathname+'game/firstShot');
 						}
 				}
 			}
@@ -72,6 +79,7 @@ function runGame(){
 			guess = prompt("Ready, aim, fire! (enter a # from 0-9)");
 			if (guess<0 || guess > 9){
 			alert("Please enter a valid cell #!");
+			ga('send', 'event', 'game','shot','invalid');
 			}
 			else if (alreadyGuessed(guess)) { 
 			alert("I want to remind you that you already shot at number " + guess + ". We do not have unlimited cannonballs!");
@@ -83,6 +91,7 @@ function runGame(){
 					if (guess == loc1 || guess == loc2 || guess == loc3){
 					alert ("Hit!");
 					hits = hits+1;
+					ga('send', 'event', 'game','shot','hit');
 					alert ("You need "+(3-hits)+" more hits to kill the enemy battleship.");
 						if (hits == 3){
 						isSunk = true;
@@ -90,6 +99,7 @@ function runGame(){
 					}
 							else {
 							misses = misses+1;
+							ga('send', 'event', 'game','shot','miss');
 							alert("Miss! Please aim more accurately "+userName+".");
 								if (misses == 3){
 								gameOver = true;
