@@ -107,6 +107,7 @@ function runGame(){
 		alert("Thank you for playing "+userName+".");
 			lossTotal = lossTotal+1;
 			finishedGames = finishedGames+1;
+			ga('send', 'pageview', document.location.pathname+'game/finished');
 			console.log(finishedGames);
 			console.log(guesses);
 			console.log(lossTotal);
@@ -116,6 +117,7 @@ function runGame(){
 			alert("The enemy battleship has been destroyed!");
 				winTotal = winTotal+1;
 				finishedGames = finishedGames+1;
+				ga('send', 'pageview', document.location.pathname+'game/finished');
 				console.log(finishedGames);
 				console.log(guesses);
 				console.log(winTotal);
