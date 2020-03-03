@@ -1,4 +1,4 @@
-function runGame(){
+function runGameMedium(){
 	var shipLocation;
 	function Random() {
 		return Math.floor(Math.random() * 8);}
