@@ -1,7 +1,7 @@
-function runGameMedium(){
+function runGame(size){
 	var shipLocation;
 	function Random() {
-		return Math.floor(Math.random() * 8);}
+		return Math.floor(Math.random() * size);}
 	shipLocation = Random();
 	var loc1 = shipLocation;
 	var loc2 = loc1+1;
@@ -47,7 +47,7 @@ function runGameMedium(){
 			   
 	while (firstShot === false){
 		guess = prompt("Ready, aim, fire! (enter a # from 0-9)");
-		if (guess<0 || guess >9){
+		if (guess<0 || guess >size+1){
 			alert("Please enter a valid cell #!");
 			ga('send', 'event', 'game','shot','invalid');
 		}
@@ -55,7 +55,7 @@ function runGameMedium(){
 			firstShot = true;
 			guessedPositions.push(guess);
 			guesses = guesses+1;
-				if (guess >-1 && guess <10){
+				if (guess >-1 && guess <size+2){
 				alert("You started firing at the enemy! Be quick since we have been spotted!");
 						if (guess == loc1 || guess == loc2 || guess == loc3){
 						alert ("Hit!");
@@ -76,7 +76,7 @@ function runGameMedium(){
 				
 	while (isSunk === false && firstShot === true && gameOver === false){
 			guess = prompt("Ready, aim, fire! (enter a # from 0-9)");
-			if (guess<0 || guess > 9){
+			if (guess<0 || guess > size+1){
 			alert("Please enter a valid cell #!");
 			ga('send', 'event', 'game','shot','invalid');
 			}
