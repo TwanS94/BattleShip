@@ -6,6 +6,30 @@
 	body {background-color: darkslategray;}
 	h1 {color: mintcream;}
 	p {color: mintcream;}
+	
+	.myButton {
+	box-shadow: 3px 4px 0px 0px #8a2a21;
+	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+	background-color:#c62d1f;
+	border-radius:18px;
+	border:1px solid #d02718;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #810e05;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+	background-color:#f24437;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
 </style>
 </head>
 	
@@ -13,32 +37,7 @@
 <h1> Welcome to BattleShip </h1>
 <p> Click the 'start' button to start the game.</p>
 	   
-    <button href="#" class="myButton">red< onclick="runGame()">Start<
-
-.myButton {
-	box-shadow:inset 0px 1px 0px 0px #f5978e;
-	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
-	background-color:#f24537;
-	border-radius:6px;
-	border:1px solid #d02718;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #810e05;
-}
-.myButton:hover {
-	background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
-	background-color:#c62d1f;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-} /button>
+    <button href="#" class="myButton">red< onclick="runGame()">Start</button>
 	<p>   </p>
 	   
     <script src="BattleShipTwanFINAL.js"></script>
