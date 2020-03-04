@@ -46,7 +46,7 @@ function runGame(size){
 	}
 			   
 	while (firstShot === false){
-		guess = prompt("Ready, aim, fire! (enter a # from 0-9)");
+		guess = prompt("Ready, aim, fire! (enter a # from 0-"+size+")");
 		if (guess<0 || guess >size+1){
 			alert("Please enter a valid cell #!");
 			ga('send', 'event', 'game','shot','invalid');
@@ -75,7 +75,7 @@ function runGame(size){
 	}
 				
 	while (isSunk === false && firstShot === true && gameOver === false){
-			guess = prompt("Ready, aim, fire! (enter a # from 0-9)");
+			guess = prompt("Ready, aim, fire! (enter a # from "+size+")");
 			if (guess<0 || guess > size+1){
 			alert("Please enter a valid cell #!");
 			ga('send', 'event', 'game','shot','invalid');
