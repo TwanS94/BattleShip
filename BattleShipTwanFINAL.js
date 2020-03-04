@@ -30,7 +30,7 @@ function runGame(size){
 	ga('send', 'pageview', document.location.pathname+'game/nameEntered');
 
 	while (gameStarted === false){
-		startGame = prompt("Hi "+userName+". A dangerous enemy battleship is coming our way! You can destroy it by hitting three shots. Enter a number between 0 and ${size} to shoot. If you miss three shots the enemies will reach our ship and destroy us.\n\nWrite: 'I am ready!' to start the battle."); 
+		startGame = prompt("Hi "+userName+". A dangerous enemy battleship is coming our way! You can destroy it by hitting three shots. Enter a number between 0 and "+runGame(size)+" to shoot. If you miss three shots the enemies will reach our ship and destroy us.\n\nWrite: 'I am ready!' to start the battle."); 
 		if (startGame != 'I am ready!'){
 		ga('send', 'event', 'game','ready','invalid');
 		alert('Write: I am ready!');
