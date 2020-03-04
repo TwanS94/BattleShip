@@ -41,6 +41,7 @@ function runGame(size){
 				ga('send', 'event', 'game','ready','valid');
 				alert("Your game has started!");
 				ga('send', 'pageview', document.location.pathname+'game/gameStarted');
+				ga('send', 'pageview', { 'dimension3': '< ?=$size?>' });
 				}
 			}
 	}
