@@ -1,4 +1,5 @@
 function runGame(size){
+	ga('set', 'dimension3', size+'');
 	var shipLocation;
 	function Random() {
 		return Math.floor(Math.random() * size);}
@@ -41,8 +42,7 @@ function runGame(size){
 				ga('send', 'event', 'game','ready','valid');
 				alert("Your game has started!");
 				ga('send', 'pageview', document.location.pathname+'game/gameStarted');
-				ga('send', 'pageview', { 'dimension3': '< ?=$size?>' });
-				}
+								}
 			}
 	}
 			   
