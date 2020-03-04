@@ -47,7 +47,7 @@ function runGame(size){
 			   
 	while (firstShot === false){
 		guess = prompt("Ready, aim, fire! (enter a # from 0-"+size+")");
-		if (guess<0 || guess >size+1){
+		if (guess<0 || guess >size){
 			alert("Please enter a valid cell #!");
 			ga('send', 'event', 'game','shot','invalid');
 		}
@@ -55,7 +55,7 @@ function runGame(size){
 			firstShot = true;
 			guessedPositions.push(guess);
 			guesses = guesses+1;
-				if (guess >-1 && guess <size+2){
+				if (guess >-1 && guess <size){
 				alert("You started firing at the enemy! Be quick since we have been spotted!");
 						if (guess == loc1 || guess == loc2 || guess == loc3){
 						alert ("Hit!");
@@ -76,7 +76,7 @@ function runGame(size){
 				
 	while (isSunk === false && firstShot === true && gameOver === false){
 			guess = prompt("Ready, aim, fire! (enter a # from "+size+")");
-			if (guess<0 || guess > size+1){
+			if (guess<0 || guess > size){
 			alert("Please enter a valid cell #!");
 			ga('send', 'event', 'game','shot','invalid');
 			}
