@@ -98,10 +98,10 @@ body:before {
 
 	.myButtonBlue {
 	box-shadow: 3px 4px 0px 0px #2e50b0;
-	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+	background:linear-gradient(to bottom, #c62d1f 5%, #00008B 100%);
 	background-color:#00008B;
 	border-radius:18px;
-	border:1px solid #d02718;
+	border:1px solid #1880d0;
 	display:inline-block;
 	cursor:pointer;
 	color:#ffffff;
