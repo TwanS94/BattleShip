@@ -1,4 +1,3 @@
-<script>
 function RPS(){
 
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -130,4 +129,3 @@ var cpuWins = 0;
     break;
     }
 }
-</script>
