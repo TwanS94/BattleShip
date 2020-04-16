@@ -1,6 +1,3 @@
-
-
-
 function runGame(size){
 
 <!-- Google Analytics -->
@@ -31,7 +28,7 @@ ga('send', 'pageview');
 	var misses = 0;
 	var isSunk = false;
 	var gameStarted = false;
-	var startGame = "I am ready!";
+	var startGame = "Ready";
 	var firstShot = false;
 	var gameOver = false;
 	var guessedPositions = [];
@@ -49,15 +46,16 @@ ga('send', 'pageview');
 	ga('send', 'pageview', document.location.pathname+'game/nameEntered');
 
 	while (gameStarted === false){
-		startGame = prompt("Hi "+userName+". A dangerous enemy battleship is coming our way! You can destroy it by hitting three shots. Enter a number between 0 and " +size+ " to shoot. If you miss three shots the enemies will reach our ship and destroy us.\n\nWrite: 'I am ready!' to start the battle."); 
-		if (startGame != 'I am ready!'){
-		alert('Write: I am ready!');
+		startGame = prompt("Hi "+userName+". A dangerous enemy battleship is coming our way! You can destroy it by hitting three shots. Enter a number between 0 and " +size+ " to shoot. If you miss three shots the enemies will reach our ship and destroy us.\n\nWrite: 'Ready' to start the battle."); 
+		if (startGame != 'Ready'){
+		alert('Write: Ready');
 		}
 			else {
-				if (startGame === "I am ready!") {
+				if (startGame === "Ready") {
 				gameStarted = true;
 				ga('send', 'event', 'game','ready','valid');
 				alert("Your game has started!");
+                console.log("%c Your game has started! ", 'background: #222; color: #bada55');
 				ga('send', 'pageview', document.location.pathname+'game/gameStarted');
 								}
 			}
@@ -130,7 +128,9 @@ ga('send', 'pageview');
 		
 	while (gameOver === true){
 		alert("The enemies have reached our ship and destroyed us! Game over.");
+		console.log("%c The enemies have reached our ship and destroyed us! Game over. ", 'background: #222; color: #bada55');
 		alert("Thank you for playing "+userName+".");
+		console.log("%c Thank you for playing "+userName+". ", 'background: #222; color: #bada55');
 			ga('send', 'pageview', document.location.pathname+'game/finished');
 			ga('send', 'event', 'game','finished','loss'); //quotes geven categorie, actie en label aan
 
@@ -138,13 +138,16 @@ ga('send', 'pageview');
 
 	while (isSunk === true){
 			alert("The enemy battleship has been destroyed!");
+			console.log("%c The enemy battleship has been destroyed! ", 'background: #222; color: 		#bada55');
 				ga('send', 'pageview', document.location.pathname+'game/finished');
 				ga('send', 'event', 'game','finished','win'); //quotes geven categorie, actie en label aan
 			var stats = "You destroyed the enemy battleship in " +guesses+" guesses,"+" which means your shooting accuracy was "+((3/guesses)*100)+"%.";
 			alert(stats);
+			console.log("%c "+stats+" ", 'background: #222; color: #bada55');
 			alert("Thank you for playing "+userName+".");
+			console.log("%c Thank you for playing "+userName+". ", 'background: #222; color: #bada55');
 	break;}
-}
+  }
 
 
 
